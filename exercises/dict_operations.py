@@ -19,5 +19,34 @@ def student_dict_operations(students_dict, operation, *args):
     返回:
     - 根据操作返回不同结果
     """
-    # 请在下方编写代码
-    pass 
+    # 复制原字典以避免修改原始数据
+    sd = students_dict.copy()
+    op = operation
+    
+    if op == "add":
+        name, score = args
+        if name in sd:
+            raise ValueError(f"学生 '{name}' 已存在，不能重复添加")
+        sd[name] = score
+        return sd
+    
+    elif op == "update":
+        name, score = args
+        if name not in sd:
+            raise ValueError(f"学生 '{name}' 不存在，无法更新")
+        sd[name] = score
+        return sd
+
+    elif op == "remove":
+        name, = args
+        if name not in sd:
+            raise ValueError(f"学生 '{name}' 不存在，无法删除")
+        del sd[name]
+        return sd
+
+    elif op == "get":
+        name, = args
+        return sd.get(name, None)
+
+    else:
+        raise ValueError(f"未知的操作类型: {op}")

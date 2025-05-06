@@ -4,7 +4,7 @@
 
 你需要通过补全 `exercises` 目录下的 Python 代码，并通过运行提供的测试来验证你的实现。
 
-## 练习内容
+## 练习内容 
 
 ### 第1部分: 基础入门
 1.  `exercises/hello_world.py`: `print` 输出语句。
